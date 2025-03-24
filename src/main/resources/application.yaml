@@ -1,0 +1,35 @@
+application:
+  name: primeirobatch
+  version: 0.0.1
+
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+  #### VIRTUAL THREADS ####
+  threads:
+    virtual:
+      enabled: true
+  #########################
+  application:
+    name: primeirobatch
+  ### DATABASE CONFIG ####
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${CONN_HOST:localhost}:${CONN_PORT:45432}/${CONN_DBNAME:postgres}
+    username: ${CONN_USR:postgres}
+    password: ${CONN_PWD:sa}
+    hikari:
+      connectionTimeout: 5000
+      idleTimeout: 600000
+      maxLifetime: 1000000
+      minimumIdle: 20
+      maximumPoolSize: 50
+    jpa:
+      database: POSTGRESQL
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false

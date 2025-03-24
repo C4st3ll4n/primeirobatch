@@ -1,0 +1,24 @@
+version: '3.5'
+name: "batch-app"
+services:
+  database:
+    container_name: batch-database
+    image: postgres:13.6
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sa}
+      PGDATA: datawarehouse:/data/postgres
+      POSTGRES_DB: batchapp
+    volumes:
+      - batch-app-vol:/data/postgres
+    ports:
+      - "45432:5432"
+    networks:
+      - batch-app
+    restart: unless-stopped
+
+networks:
+  batch-app:
+    driver: bridge
+volumes:
+  batch-app-vol:
