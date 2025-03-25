@@ -1,4 +1,4 @@
-package com.phenrique.primeirobatch.batch.file.step;
+package com.phenrique.primeirobatch.batch.file.fixed.step;
 
 import com.phenrique.primeirobatch.batch.file.Client;
 import org.springframework.batch.core.Step;

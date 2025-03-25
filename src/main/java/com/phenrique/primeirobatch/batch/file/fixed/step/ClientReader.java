@@ -1,4 +1,4 @@
-package com.phenrique.primeirobatch.batch.file.step;
+package com.phenrique.primeirobatch.batch.file.fixed.step;
 
 import com.phenrique.primeirobatch.batch.file.Client;
 import org.springframework.batch.core.configuration.annotation.StepScope;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 
-@Configuration
+//@Configuration
 public class ClientReader {
 
     @StepScope
